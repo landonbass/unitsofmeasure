@@ -1,17 +1,17 @@
 'use strict';
 
-var Converters = function () {
+var UnitsOfMeasure = function () {
     this.types = [];
-}, converters = new Converters();
+}, unitsOfMeasure = new UnitsOfMeasure();
 
-Converters.prototype.add = function (name, conversions) {
+UnitsOfMeasure.prototype.add = function (name, conversions) {
     this.types.push({
         name: name,
         conversions: conversions
     });
 };
 
-Converters.prototype.new = function (unit, value) {
+UnitsOfMeasure.prototype.new = function (unit, value) {
     return {
         unit:unit,
         value:value,
@@ -22,11 +22,11 @@ Converters.prototype.new = function (unit, value) {
 };
 
 
-converters.add('f',['c',function(value){return value * 9/5 + 32;}]);
+unitsOfMeasure.add('f',['c',function(value){return value * 9/5 + 32;}]);
 
-var temp = converters.new('f', 85);
+var temp = unitsOfMeasure.new('f', 85);
 
 console.log(temp.Value());
 
 
-module.exports = converters;
+module.exports = unitsOfMeasure;
