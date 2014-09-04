@@ -11,6 +11,10 @@ UnitsOfMeasure.prototype.add = function (name, conversions) {
     });
 };
 
+UnitsOfMeasure.prototype.clear = function () {
+    this.types = [];
+};
+
 UnitsOfMeasure.prototype.new = function (unit, value) {
     return {
         unit:unit,
@@ -20,13 +24,5 @@ UnitsOfMeasure.prototype.new = function (unit, value) {
         }
     };
 };
-
-
-unitsOfMeasure.add('f',['c',function(value){return value * 9/5 + 32;}]);
-
-var temp = unitsOfMeasure.new('f', 85);
-
-console.log(temp.Value());
-
 
 module.exports = unitsOfMeasure;
