@@ -19,10 +19,18 @@ describe('properties', function () {
 
 describe('types', function () {
   it('add type should add a type', function () {
+	uom.clear();
 	uom.add('f',['c',function(value){return value * 9/5 + 32;}]);
 	uom.types.length.should.equal(1);
 	//var temp = unitsOfMeasure.new('f', 85);
 
 	//console.log(temp.Value());
+  });
+  
+  it('add type should add multiple types', function () {
+	uom.clear();
+	uom.add('f',['c',function(value){return (value - 32)* 5/9;}]);
+	uom.add('c',['f',function(value){return value * 9/5 + 32;}]);
+	uom.types.length.should.equal(2);
   });
 });
