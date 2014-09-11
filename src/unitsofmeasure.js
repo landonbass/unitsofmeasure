@@ -25,4 +25,8 @@ UnitsOfMeasure.prototype.new = function (unit, value) {
     };
 };
 
+UnitsOfMeasure.prototype.convert = function (object, unitName) {
+
+};
+
 module.exports = unitsOfMeasure;

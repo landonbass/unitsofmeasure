@@ -15,6 +15,9 @@ describe('properties', function () {
     it('has clear', function () {
 	uom.should.have.property('clear');
   });
+      it('has convert', function () {
+	uom.should.have.property('convert');
+  });
 });
 
 describe('types', function () {
