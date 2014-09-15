@@ -26,7 +26,26 @@ UnitsOfMeasure.prototype.new = function (unit, value) {
 };
 
 UnitsOfMeasure.prototype.convert = function (object, unitName) {
-
+	var unit;
+	this.types.forEach(function (u) {
+		if (u.name === unitName){
+			unit = u;
+		}
+	});
+	if (typeof(unit) === 'undefined') {
+		throw 'unit not found';
+	}
+	
+	var conversion;
+	unit.conversions.forEach(function (c) {
+		if (c[0] === object.name) {
+			conversion = c;
+		}
+	});
+	
+	if (typeof(conversion) === 'undefined') {
+		throw 'conversion not found';
+	}
 };
 
 module.exports = unitsOfMeasure;

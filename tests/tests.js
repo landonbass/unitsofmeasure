@@ -1,5 +1,7 @@
 'use strict';
-var should = require('chai').should(),
+var chai = require('chai'),
+	should = chai.should(),
+	expect = chai.expect,
     uom = require('../src/unitsofmeasure');
 
 describe('properties', function () {
@@ -36,4 +38,12 @@ describe('types', function () {
 	uom.add('c',['f',function(value){return value * 9/5 + 32;}]);
 	uom.types.length.should.equal(2);
   });
+});
+
+describe('convert', function () {
+	it('should throw an expection when unit is not found', function () {
+		uom.clear();
+		uom.add('f',['c',function(value){return (value - 32)* 5/9;}]);
+		expect(function(){uom.convert(null, 'abc')}).to.throw('unit not found');	
+	});
 });
